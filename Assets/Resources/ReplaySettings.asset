@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1276901254, guid: ceedb4fd6e867442e824b63fba73015a, type: 3}
+  m_Name: ReplaySettings
+  m_EditorClassIdentifier: 
+  targetFps: 60
+  videoSets: []
+  inputAxes:
+  - name: Horizontal
+    value: 0
+    negativeButton: left
+    positiveButton: right
+    altNegativeButton: a
+    altPositiveButton: d
+  - name: Vertical
+    value: 0
+    negativeButton: down
+    positiveButton: up
+    altNegativeButton: s
+    altPositiveButton: w
+  - name: Fire1
+    value: 0
+    negativeButton: 
+    positiveButton: left ctrl
+    altNegativeButton: 
+    altPositiveButton: mouse 0
+  - name: Fire2
+    value: 0
+    negativeButton: 
+    positiveButton: left alt
+    altNegativeButton: 
+    altPositiveButton: mouse 1
+  - name: Fire3
+    value: 0
+    negativeButton: 
+    positiveButton: left shift
+    altNegativeButton: 
+    altPositiveButton: mouse 2
+  - name: Jump
+    value: 0
+    negativeButton: 
+    positiveButton: space
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Mouse X
+    value: 0
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Mouse Y
+    value: 0
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Mouse ScrollWheel
+    value: 0
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Horizontal
+    value: 0
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Vertical
+    value: 0
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Fire1
+    value: 0
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Fire2
+    value: 0
+    negativeButton: 
+    positiveButton: joystick button 1
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Fire3
+    value: 0
+    negativeButton: 
+    positiveButton: joystick button 2
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Jump
+    value: 0
+    negativeButton: 
+    positiveButton: joystick button 3
+    altNegativeButton: 
+    altPositiveButton: 
+  - name: Submit
+    value: 0
+    negativeButton: 
+    positiveButton: return
+    altNegativeButton: 
+    altPositiveButton: joystick button 0
+  - name: Submit
+    value: 0
+    negativeButton: 
+    positiveButton: enter
+    altNegativeButton: 
+    altPositiveButton: space
+  - name: Cancel
+    value: 0
+    negativeButton: 
+    positiveButton: escape
+    altNegativeButton: 
+    altPositiveButton: joystick button 1
+  videoCodec: 0
+  removeScreenshotsAlpha: 0
+  version: 2.8.5
+  previousVersion: 2.2.10
+  captureImmediately: 0
+  setCaptureDefaultName: 0
+  captureDefaultNamePrefix: 
+  stabilizeCaptureFramerate: 1
+  debugRandomsOnCapture: 0
+  debugRandomsOnReplay: 0
+  debugPlayerPrefsOnCapture: 0
+  debugPlayerPrefsOnReplay: 0
+  startCaptureHotKey: 114
+  stopCaptureHotKey: 115
+  lockFocus: 0
+  replayTraceData:
+    guid: 4e68a1f6-6806-49d2-9521-4c1fc2759db5
+  replayTraceUrl: 
+  replayName: 
+  videoPath: 
+  replayId: 0
+  captureMode: 0
+  serverEnvironment: 2
+  hasVideoInEditor: 0

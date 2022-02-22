@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d5ecfba29a5e94c826adc57ad19a36, type: 3}
+  m_Name: VideoRecordingSettings
+  m_EditorClassIdentifier: 
+  enableTagLine: 0
+  tagLineText: Tag Line Text
+  tagLineFont: 0
+  tagLineTextColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+  tagLineBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  enablePointerVisual: 0
+  pointerVisualStyle: 2
+  pointerVisualSize: 256
+  pointerVisualMode: 0
+  tagLineSettings:
+    tagLineWidgetPrefab: {fileID: 7072178953648224118, guid: 9e53a6da418c64d4db7eb830ab88fdcf,
+      type: 3}
+    arialFontAsset: {fileID: 11400000, guid: 84ded0c901c056545b99a680bd83b9c0, type: 2}
+    arialRoundedFontAsset: {fileID: 11400000, guid: ff8f39a83566cdf489b3b6ed10d098cf,
+      type: 2}
+    calibriFontAsset: {fileID: 11400000, guid: 229448245bced004889c788a7aaf846c, type: 2}
+    impactFontAsset: {fileID: 11400000, guid: a5f2861a0c9f2374e994cdf79d3cf343, type: 2}
+  pointerVisualSettings:
+    pointerVisualWidgetPrefab: {fileID: 6495620795816144371, guid: adfb332dec0a2504884443a548534443,
+      type: 3}

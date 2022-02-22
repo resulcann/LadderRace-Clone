@@ -1,0 +1,15 @@
+using Magiclab.Utility.GenericUtilities;
+
+[SaveDefinitionClass]
+public class #SCRIPTNAME#
+{
+    // You can use it by defining a "public static" variable or class.
+        
+    /* ------ Supported variable types;
+     Enum, int, float, string, bool, Vector2, Vector3, Vector4, Quaternion, Color, 
+     Rect, Bounds, List, Array, Dictionary<string, *>, Dictionary<int, *>
+     Any Class or Struct
+    */
+    
+    #NOTRIM#
+}

@@ -1,0 +1,6 @@
+
+        <linker>
+          <assembly fullname="Magiclab.MarketingSDK.Dummy" ignoreIfMissing="1">
+            <type fullname = "Magiclab.MarketingSDK.Dummy.*" preserve="all"/>
+          </assembly>
+        </linker>

@@ -1,0 +1,16 @@
+{
+    "name": "Magiclab.PackageManager.Editor",
+    "references": [
+        "GUID:4eb8985086b1847938db11db42b247dd"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
