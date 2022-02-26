@@ -3,9 +3,13 @@ using UnityEngine;
 using Magiclab.MarketingSDK.Core;
 using Magiclab.Utility.GenericUtilities;
 using MoreMountains.NiceVibrations;
+using System.Collections;
+using System.Collections.Generic;
+
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager Instance { get; private set; }
 
     [Header("References")]
@@ -30,6 +34,8 @@ public class GameManager : MonoBehaviour
     }
 
     public event Action<GameState /*Old*/, GameState /*New*/> OnGameStateChanged;
+
+    public List<GameObject> ladderParts;
 
     private void Awake()
     {
