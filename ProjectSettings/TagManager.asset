@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectible
   - Collected
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -13,9 +14,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - LadderPiece
+  - Player
   - 
   - 
   - 

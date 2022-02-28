@@ -10,12 +10,6 @@ public class CollectibleLadder : MonoBehaviour
     {
         isCollected = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public bool GetIsCollected()
     {
         return isCollected;
@@ -27,9 +21,5 @@ public class CollectibleLadder : MonoBehaviour
         transform.tag = "Collected";
     }
     
-    public void SetPositions(float y, float z)
-    {
-        transform.DOLocalMove(new Vector3(0f, y , z), 0.1f);
-    }
 
 }

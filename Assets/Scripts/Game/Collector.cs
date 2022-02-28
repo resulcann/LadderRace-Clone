@@ -5,21 +5,9 @@ using DG.Tweening;
 
 public class Collector : MonoBehaviour
 {
-    float posY = -0.16f;
-    float posZ = -0.1f;
+    public static Collector Instance { get; private set; }
     public GameObject backpack;
-    public List<GameObject> collectedLadders;
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<GameObject> collectedLadderParts;
 
     private void OnTriggerEnter(Collider other) 
     {
@@ -28,19 +16,17 @@ public class Collector : MonoBehaviour
             other.gameObject.transform.parent = backpack.transform;
             other.gameObject.transform.localRotation = new Quaternion(0f,0f,0f,0f);
             other.gameObject.GetComponent<CollectibleLadder>().SetCollected();
+            collectedLadderParts.Add(other.gameObject);
             SetPositions();
-            collectedLadders.Add(other.gameObject);
             
         }
     }
 
     public void SetPositions()
     {
-
-        for (int i = 0; i < collectedLadders.Count; i++)
+        for (int i = 0; i < collectedLadderParts.Count; i++)
         {
-            collectedLadders[i].transform.DOLocalMove(new Vector3(0f, (i / 4) * 0.1f - 0.1f , -(i % 4) * 0.1f - 0.1f), 0.1f);
+            collectedLadderParts[i].transform.DOLocalMove(new Vector3(0f, (i / 4) * 0.1f - 0.1f , -(i % 4) * 0.1f - 0.1f), 0.1f);
         }
-
     }
 }
