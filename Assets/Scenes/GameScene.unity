@@ -10251,13 +10251,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   playerSpeed: 3
-  zPos: 3
-  thrustForce: 5
   Ladders: []
   ladderPrefab: {fileID: 3429754709114511538, guid: cdad5622e19f5fc418cf0aed66121652,
     type: 3}
   spawnTime: 0
-  spawnDelay: 0
+  spawnDelay: 0.05
 --- !u!65 &2161617565772339988
 BoxCollider:
   m_ObjectHideFlags: 0
