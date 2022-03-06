@@ -1,12 +1,13 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.NiceVibrations;
+using UnityEngine.SceneManagement;
 
 public class GameplayController : MonoBehaviour
 {
-    public bool IsActive { get; private set; }
+    public bool IsActive { get; set; }
 
     public Action<bool> OnGameplayFinished;
 
@@ -17,7 +18,8 @@ public class GameplayController : MonoBehaviour
 
     public void RetryGameplay()
     {
-        IsActive = true;
+        IsActive = true;        
+        
     }
 
     private void FinishGameplay(bool success)

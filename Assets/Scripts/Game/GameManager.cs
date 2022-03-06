@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         MMVibrationManager.SetHapticsActive(enabled);
     }
 
-    private void ChangeCurrentGameState(GameState newGameState)
+    public void ChangeCurrentGameState(GameState newGameState)
     {
         var oldGameState = CurrentGameState;
         CurrentGameState = newGameState;

@@ -8,17 +8,19 @@ public class CharacterMove : MonoBehaviour
 {
     Rigidbody rigidBody;
     Animator animator;
+    public Transform groundCheck;
+    public LayerMask groundMask;
     public bool isGrounded = false;
-    float distToGround = 0.5f;
+    float distToGround = 0.4f;
     public float playerSpeed;
     float playerSpeedHolder;
     public List<GameObject> Ladders;
     [SerializeField] GameObject ladderPrefab;
-    bool stopSpawning = false;
-    public float spawnTime, spawnDelay;
+    private float spawnTime;
+    [SerializeField] float spawnDelay;
     Vector3 startPos;
     Collector collector;
-    bool stopHolding = false;
+    [HideInInspector] public bool canPressButton = true;
 
     void Start()
     {
@@ -31,7 +33,6 @@ public class CharacterMove : MonoBehaviour
     void Update()
     {
         CharacterMovement();
-        GroundCheck();
         
     }
 
@@ -39,32 +40,25 @@ public class CharacterMove : MonoBehaviour
     {
         if(GameManager.Instance.CurrentGameState == GameState.Gameplay)
         {
-            // Character moving forward continously
-            transform.Translate(new Vector3(0f,0f,playerSpeed * Time.deltaTime));
-
-            /* If you keep touching to screen or holding left mouse button and if you collected ladder pieces then player speed is will be zero and
-            character goes to jumping animation and 1 ladder spawns at the time.*/
             
-            if(Input.GetMouseButtonDown(0) && collector.collectedLadderParts.Count > 0)
+            isGrounded = Physics.CheckSphere(groundCheck.position, distToGround, groundMask); // Is character touching ground?
+            if(isGrounded)
             {
-                rigidBody.useGravity = false;
-                animator.SetBool("Running", false);
-                animator.SetBool("JumpStart", true);
-                startPos = transform.position;
-                playerSpeed = 0f;
-                InvokeRepeating("SpawnLadder", spawnTime, spawnDelay);
-                
+                animator.SetBool("Run", true);
+                animator.SetBool("HighPoint", false);
+                animator.SetBool("Landing", false);
+            }else{
+                animator.SetBool("Run", false);
             }
-            /* If you release your hands from screen or stop holding left mouse button character goes to landing animation and you stopped ladders spawning.
-            */
-            if(Input.GetMouseButtonUp(0))
+            
+            transform.Translate(new Vector3(0f, 0f, playerSpeed * Time.deltaTime)); // Character moving forward continously
+
+
+            if(Input.GetMouseButtonUp(0) || (Input.GetMouseButton(0) && collector.collectedLadderParts.Count == 0) || canPressButton == false)
             {
-                playerSpeed = playerSpeedHolder;
                 rigidBody.useGravity = true;
-
-                animator.SetBool("JumpLanding", true);
-                animator.SetBool("JumpStart", false);
-
+                animator.SetBool("Landing", true);
+                playerSpeed = playerSpeedHolder;
                 CancelInvoke("SpawnLadder");
                 foreach (var item in Ladders)
                 {
@@ -73,6 +67,39 @@ public class CharacterMove : MonoBehaviour
                 }
                 Ladders.Clear();
             }
+
+            /* If you keep touching to screen or holding left mouse button and if you collected ladder pieces then player speed is will be zero and
+            character goes to jumping animation and 1 ladder spawns at the time.*/
+            
+            if(Input.GetMouseButtonDown(0) && collector.collectedLadderParts.Count > 0 && isGrounded && canPressButton == true)
+            {
+                rigidBody.useGravity = false;
+                startPos = transform.position;
+                playerSpeed = 0f;
+                animator.SetBool("HighPoint",true);
+
+                InvokeRepeating("SpawnLadder", spawnTime, spawnDelay);
+                
+                
+            }
+            /* If you release your hands from screen or stop holding left mouse button character goes to landing animation and you stopped ladders spawning.
+            */
+            // if(Input.GetMouseButtonUp(0))
+            // {
+            //     animator.SetBool("Landing", true);
+            //     playerSpeed = playerSpeedHolder;
+            //     rigidBody.useGravity = true;
+            //     CancelInvoke("SpawnLadder");
+
+            //     foreach (var item in Ladders)
+            //     {
+            //         item.GetComponent<Rigidbody>().useGravity = true;
+            //         item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            //     }
+            //     Ladders.Clear();
+            // }
+
+            
 
         }
         
@@ -89,7 +116,7 @@ public class CharacterMove : MonoBehaviour
     {
         if(collector.collectedLadderParts.Count > 0)
         {
-            float posY = 2.65f, posZ = 0.2f;
+            float posY = 0.15f, posZ = 0.2f;
             GameObject ladder = Instantiate(ladderPrefab) as GameObject;
             Ladders.Add(ladder);
             ladder.GetComponent<Rigidbody>().useGravity = false;
@@ -101,10 +128,10 @@ public class CharacterMove : MonoBehaviour
 
             for (int i = 0; i < Ladders.Count; i++)
             {
-                Ladders[i].transform.localPosition = new Vector3(1f, posY, startPos.z + posZ);
+                Ladders[i].transform.localPosition = new Vector3(1f, startPos.y + posY, startPos.z + posZ);
                 Ladders[i].name = "Ladder Part" + " " + i;
-                posY += 0.295442f;
-                posZ += 0.0520945f;
+                posY += 0.259808f;
+                posZ += 0.15f;
                 transform.position = Ladders[i].transform.position;
             }
         }else{
@@ -113,22 +140,39 @@ public class CharacterMove : MonoBehaviour
         
 
     }
-    
-    // Am i touching ground or not?
-    void GroundCheck()
-    {
-        if(Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
-        {
-            isGrounded = true;
-            animator.Play("Running");
-            animator.SetBool("Running", true);
-            animator.SetBool("JumpStart", false);
-            animator.SetBool("JumpHighPoint", false);
-            animator.SetBool("JumpLanding", false);
 
-        }else{
-            isGrounded = false;
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.gameObject.tag == "FinishLine")
+        {
+            FindObjectOfType<GameplayController>().IsActive = false;
+            GameManager.Instance.ChangeCurrentGameState(GameState.FinishSuccess);
+            playerSpeed = 0f;
+            
+            //animator.Play("Victory");
+
         }
+        
     }
+    private void OnCollisionEnter(Collision other) 
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 1f), 2f);
+            if(collector.collectedLadderParts.Count == 0)
+            {
+                GameManager.Instance.ChangeCurrentGameState(GameState.FinishFail);
+                playerSpeed = 0f;
+                //animator.Play("Lose");
+            }
+        }
+        // if(other.gameObject.tag == "Enemy" && collector.collectedLadderParts.Count == 0)
+        // {
+        //     GameManager.Instance.ChangeCurrentGameState(GameState.FinishFail);
+        //     playerSpeed = 0f;
+        //     //animator.Play("Lose");
+        // }
+    }
+    
     
 }
