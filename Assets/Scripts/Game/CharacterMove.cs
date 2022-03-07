@@ -16,11 +16,10 @@ public class CharacterMove : MonoBehaviour
     float playerSpeedHolder;
     public List<GameObject> Ladders;
     [SerializeField] GameObject ladderPrefab;
-    private float spawnTime;
+    float spawnTime;
     [SerializeField] float spawnDelay;
     Vector3 startPos;
     Collector collector;
-    [HideInInspector] public bool canPressButton = true;
 
     void Start()
     {
@@ -54,24 +53,15 @@ public class CharacterMove : MonoBehaviour
             transform.Translate(new Vector3(0f, 0f, playerSpeed * Time.deltaTime)); // Character moving forward continously
 
 
-            if(Input.GetMouseButtonUp(0) || (Input.GetMouseButton(0) && collector.collectedLadderParts.Count == 0) || canPressButton == false)
+            if(Input.GetMouseButtonUp(0) || (Input.GetMouseButton(0) && collector.collectedLadderParts.Count == 0))
             {
-                rigidBody.useGravity = true;
-                animator.SetBool("Landing", true);
-                playerSpeed = playerSpeedHolder;
-                CancelInvoke("SpawnLadder");
-                foreach (var item in Ladders)
-                {
-                    item.GetComponent<Rigidbody>().useGravity = true;
-                    item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                }
-                Ladders.Clear();
+                StopSpawningLadder();
             }
 
             /* If you keep touching to screen or holding left mouse button and if you collected ladder pieces then player speed is will be zero and
             character goes to jumping animation and 1 ladder spawns at the time.*/
             
-            if(Input.GetMouseButtonDown(0) && collector.collectedLadderParts.Count > 0 && isGrounded && canPressButton == true)
+            if(Input.GetMouseButtonDown(0) && collector.collectedLadderParts.Count > 0 && isGrounded)
             {
                 rigidBody.useGravity = false;
                 startPos = transform.position;
@@ -82,28 +72,8 @@ public class CharacterMove : MonoBehaviour
                 
                 
             }
-            /* If you release your hands from screen or stop holding left mouse button character goes to landing animation and you stopped ladders spawning.
-            */
-            // if(Input.GetMouseButtonUp(0))
-            // {
-            //     animator.SetBool("Landing", true);
-            //     playerSpeed = playerSpeedHolder;
-            //     rigidBody.useGravity = true;
-            //     CancelInvoke("SpawnLadder");
-
-            //     foreach (var item in Ladders)
-            //     {
-            //         item.GetComponent<Rigidbody>().useGravity = true;
-            //         item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            //     }
-            //     Ladders.Clear();
-            // }
-
-            
 
         }
-        
-
 
     }
 
@@ -158,7 +128,7 @@ public class CharacterMove : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 1f), 2f);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 5f), 2f);
             if(collector.collectedLadderParts.Count == 0)
             {
                 GameManager.Instance.ChangeCurrentGameState(GameState.FinishFail);
@@ -166,12 +136,24 @@ public class CharacterMove : MonoBehaviour
                 //animator.Play("Lose");
             }
         }
-        // if(other.gameObject.tag == "Enemy" && collector.collectedLadderParts.Count == 0)
-        // {
-        //     GameManager.Instance.ChangeCurrentGameState(GameState.FinishFail);
-        //     playerSpeed = 0f;
-        //     //animator.Play("Lose");
-        // }
+        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "Ground")
+        {
+            StopSpawningLadder();
+        }
+    }
+
+    public void StopSpawningLadder()
+    {
+        rigidBody.useGravity = true;
+        animator.SetBool("Landing", true);
+        playerSpeed = playerSpeedHolder;
+        CancelInvoke("SpawnLadder");
+        foreach (var item in Ladders)
+        {
+            item.GetComponent<Rigidbody>().useGravity = true;
+            item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        }
+        Ladders.Clear();
     }
     
     
