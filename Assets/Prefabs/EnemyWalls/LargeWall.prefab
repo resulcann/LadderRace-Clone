@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4776453098387971814}
   - component: {fileID: 4776453098387971801}
   - component: {fileID: 4776453098387971800}
+  - component: {fileID: -8218115342710811638}
   m_Layer: 0
   m_Name: LargeWall
   m_TagString: Ground
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4776453098387971802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3.5, z: 37.26}
-  m_LocalScale: {x: 4, y: 2, z: 1}
+  m_LocalScale: {x: 5, y: 2, z: 1}
   m_Children:
   - {fileID: 5696657411626428966}
   m_Father: {fileID: 0}
@@ -97,6 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8218115342710811638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4776453098387971802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5781b5d17010ce4408b3ab63c1c95b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ai: {fileID: 0}
 --- !u!1 &8652687634357082367
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +123,7 @@ GameObject:
   - component: {fileID: 4228479402373474549}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Enemy
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
+    GameObject player;
     private void OnCollisionEnter(Collision other) 
     {
-        if(other.gameObject.tag == "Ground" && other.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Ground" && other.gameObject.tag == "Wall")
         {
-            FindObjectOfType<CharacterMove>().StopSpawningLadder();
+            player.GetComponent<Player>().StopSpawningLadder();
         }
     }
 }

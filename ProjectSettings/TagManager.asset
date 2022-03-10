@@ -7,9 +7,12 @@ TagManager:
   - Collectible
   - Collected
   - Ground
-  - Enemy
   - FinishLine
   - Wall
+  - Enemy
+  - StartSpawning
+  - StopSpawning
+  - AI
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - Ground
   - LadderPiece
   - Player
-  - 
+  - EnemyPlayer
   - 
   - 
   - 

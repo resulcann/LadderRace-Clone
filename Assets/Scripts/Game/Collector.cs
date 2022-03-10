@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class Collector : MonoBehaviour
 {
-    public static Collector Instance { get; private set; }
     public GameObject backpack;
     public List<GameObject> collectedLadderParts;
     
