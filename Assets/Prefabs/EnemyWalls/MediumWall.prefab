@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6156547585793786685}
   - component: {fileID: 6156547585793786686}
   - component: {fileID: 6156547585793786687}
-  - component: {fileID: -2812800276888260673}
   m_Layer: 0
   m_Name: MediumWall
   m_TagString: Ground
@@ -98,19 +97,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-2812800276888260673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6156547585793786657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5781b5d17010ce4408b3ab63c1c95b26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 0}
 --- !u!1 &8979886993741536683
 GameObject:
   m_ObjectHideFlags: 0

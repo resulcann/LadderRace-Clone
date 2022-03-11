@@ -23,7 +23,7 @@ TagManager:
   - Ground
   - LadderPiece
   - Player
-  - EnemyPlayer
+  - AI
   - 
   - 
   - 

@@ -1,53 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 
 public class Player : Character
 {
-    Rigidbody rigidBody;
-    Animator animator;
-    public Transform groundCheck;
-    public LayerMask groundMask;
-    public bool isGrounded = false;
-    float distToGround = 0.4f;
-    public float playerSpeed;
-    float playerSpeedHolder;
-    public List<GameObject> Ladders;
-    [SerializeField] GameObject ladderPrefab;
-    float spawnTime;
-    [SerializeField] float spawnDelay;
-    Vector3 startPos;
-    Collector collector;
-
     void Start()
     {
         playerSpeedHolder = playerSpeed;
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         collector = GetComponent<Collector>();
+        
     }
 
     void Update()
     {
         if(GameManager.Instance.CurrentGameState == GameState.Gameplay)
         {
-            Move();
+            base.Move();
             CheckIsGrounded();
 
             if(Input.GetMouseButtonDown(0) && collector.collectedLadderParts.Count > 0 && isGrounded)
             {
-                rigidBody.useGravity = false;
-                startPos = transform.position;
-                playerSpeed = 0f;
-                animator.SetBool("HighPoint",true);
-                DOTween.KillAll();
-                InvokeRepeating("SpawnLadder", spawnTime, spawnDelay);
+                base.StartSpawningLadder();
             }
             if(Input.GetMouseButtonUp(0) || (Input.GetMouseButton(0) && collector.collectedLadderParts.Count == 0))
             {
-                StopSpawningLadder();
+                base.StopSpawningLadder();
             }
         }
 
@@ -58,7 +38,7 @@ public class Player : Character
         {
             FindObjectOfType<GameplayController>().IsActive = false;
             GameManager.Instance.ChangeCurrentGameState(GameState.FinishSuccess);
-            StopMoving();
+            base.StopMoving();
             animator.Play("Victory");
 
         }
@@ -74,82 +54,14 @@ public class Player : Character
         if(other.gameObject.tag == "Wall" && collector.collectedLadderParts.Count == 0)
         {
             GameManager.Instance.ChangeCurrentGameState(GameState.FinishFail);
-            StopMoving();
+            base.StopMoving();
             animator.Play("Lose");
         }
 
         if(other.gameObject.tag == "Wall" || other.gameObject.tag == "Ground")
         {
-            StopSpawningLadder();
+            base.StopSpawningLadder();
         }
     }
-
-
-    public override void Move()
-    {
-        transform.Translate(new Vector3(0f, 0f, playerSpeed * Time.deltaTime));
-    }
-
-    public override void StopMoving()
-    {
-        playerSpeed = 0f;
-    }
-
-    public override void SpawnLadder()
-    {
-        float posY = 0.15f, posZ = 0.2f;
-        GameObject ladder = Instantiate(ladderPrefab) as GameObject;
-        Ladders.Add(ladder);
-        ladder.GetComponent<Rigidbody>().useGravity = false;
-        ladder.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
-        GameObject tempGo = collector.collectedLadderParts.Last();
-        collector.collectedLadderParts.Remove(collector.collectedLadderParts.Last());
-        Destroy(tempGo);
-
-        for (int i = 0; i < Ladders.Count; i++)
-        {
-            Ladders[i].transform.localPosition = new Vector3(transform.localPosition.x, startPos.y + posY, startPos.z + posZ);
-            Ladders[i].name = "Ladder Part" + " " + i;
-            posY += 0.259808f;
-            posZ += 0.15f;
-            transform.position = Ladders[i].transform.position;
-        }
-    }
-
-    public override void StopSpawningLadder()
-    {
-        rigidBody.useGravity = true;
-        animator.SetBool("HighPoint", true);
-        playerSpeed = playerSpeedHolder;
-        CancelInvoke("SpawnLadder");
-        foreach (var item in Ladders)
-        {
-            item.GetComponent<Rigidbody>().useGravity = true;
-            item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        }
-        Ladders.Clear();
-    }
-
-    public override void CheckIsGrounded()
-    {
-        isGrounded = Physics.CheckSphere(groundCheck.position, distToGround, groundMask); // Is character touching ground?
-        if(isGrounded)
-        {
-            animator.SetBool("Run", true);
-            animator.SetBool("HighPoint", false);
-            animator.SetBool("Landing", false);
-        }else{
-            animator.SetBool("Run", false);
-        }
-        
-        if(rigidBody.velocity.y < 0 && !isGrounded)
-        {
-            animator.SetBool("HighPoint", true);
-            animator.SetBool("Landing", true);
-            animator.SetBool("Run", false);
-        }
-    }
-
 
 }
