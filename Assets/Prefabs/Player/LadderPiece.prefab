@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2537700655229549167}
   - component: {fileID: -3652414799511683366}
   - component: {fileID: 8193366026532898482}
+  - component: {fileID: 3681354318932637921}
   m_Layer: 7
   m_Name: LadderPiece
   m_TagString: Untagged
@@ -113,3 +114,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.29999998, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3681354318932637921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429754709114511538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 0, g: 0.7843138, b: 1, a: 0}

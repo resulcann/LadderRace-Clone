@@ -290,6 +290,9 @@ MonoBehaviour:
   Levels:
   - {fileID: 11400000, guid: 9d9f1187e138d074ba719ba484f92797, type: 2}
   - {fileID: 11400000, guid: c9ed72f15eabc9e4ba34edcfa1910935, type: 2}
+  - {fileID: 11400000, guid: 03fa5e9cacb106947ab8718efb781141, type: 2}
+  - {fileID: 11400000, guid: 4b92b8d208055984dbb10c12bd47450e, type: 2}
+  - {fileID: 11400000, guid: c54b34334a82f3740906819febfbf3d3, type: 2}
   currentLevelIndex: 0
   allSpawnedLadders: []
 --- !u!4 &219336740

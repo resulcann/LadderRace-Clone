@@ -132,8 +132,9 @@ GameObject:
   - component: {fileID: 1488070374396785732}
   - component: {fileID: 5043204374941056623}
   - component: {fileID: 641703306424091557}
-  - component: {fileID: 8805927287832420078}
   - component: {fileID: 2154167888551987508}
+  - component: {fileID: 8805927287832420078}
+  - component: {fileID: 8489172517483011345}
   m_Layer: 0
   m_Name: CollectiblePiece_6
   m_TagString: Collectible
@@ -219,18 +220,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8805927287832420078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301310437844310741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2154167888551987508
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -247,6 +236,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &8805927287832420078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301310437844310741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8489172517483011345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301310437844310741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}
 --- !u!1 &331807965828685853
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,8 +313,9 @@ GameObject:
   - component: {fileID: 3599761977988866234}
   - component: {fileID: 6966879258254158481}
   - component: {fileID: 3293703271038981979}
-  - component: {fileID: 6874371388646590992}
   - component: {fileID: 4086867288261254602}
+  - component: {fileID: 6874371388646590992}
+  - component: {fileID: 3486452496476986056}
   m_Layer: 0
   m_Name: CollectiblePiece_9
   m_TagString: Collectible
@@ -386,18 +401,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6874371388646590992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2412843436741479979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &4086867288261254602
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -414,6 +417,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &6874371388646590992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412843436741479979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3486452496476986056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412843436741479979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}
 --- !u!1 &2578444829239195452
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,8 +514,9 @@ GameObject:
   - component: {fileID: 2970246809024240062}
   - component: {fileID: 8675006057130349461}
   - component: {fileID: 3853135568888753759}
-  - component: {fileID: 5163992240480645908}
   - component: {fileID: 2340741419395884238}
+  - component: {fileID: 5163992240480645908}
+  - component: {fileID: 6757399345921272348}
   m_Layer: 0
   m_Name: CollectiblePiece_7
   m_TagString: Collectible
@@ -573,18 +602,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5163992240480645908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4157006746251999023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2340741419395884238
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -601,6 +618,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5163992240480645908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4157006746251999023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6757399345921272348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4157006746251999023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}
 --- !u!1 &4254489078570702977
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,8 +685,9 @@ GameObject:
   - component: {fileID: 6388345117765262263}
   - component: {fileID: 719531120970076572}
   - component: {fileID: 4964813794595712086}
-  - component: {fileID: 3906228503882215709}
   - component: {fileID: 5900949570648401607}
+  - component: {fileID: 3906228503882215709}
+  - component: {fileID: 6008479094550260621}
   m_Layer: 0
   m_Name: CollectiblePiece_3
   m_TagString: Collectible
@@ -730,18 +773,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3906228503882215709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5201444443044967718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5900949570648401607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -758,6 +789,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3906228503882215709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201444443044967718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6008479094550260621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201444443044967718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}
 --- !u!1 &5201444443107624675
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,8 +826,9 @@ GameObject:
   - component: {fileID: 6388345117685327986}
   - component: {fileID: 719531120907084377}
   - component: {fileID: 4964813794650218387}
-  - component: {fileID: 3906228503953294040}
   - component: {fileID: 5900949570702939394}
+  - component: {fileID: 3906228503953294040}
+  - component: {fileID: 1050728965595817829}
   m_Layer: 0
   m_Name: CollectiblePiece_2
   m_TagString: Collectible
@@ -857,18 +914,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3906228503953294040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5201444443107624675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5900949570702939394
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -885,6 +930,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3906228503953294040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201444443107624675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1050728965595817829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201444443107624675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}
 --- !u!1 &5201444443170694386
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,8 +967,9 @@ GameObject:
   - component: {fileID: 6388345117622553187}
   - component: {fileID: 719531121918017608}
   - component: {fileID: 4964813794184772994}
-  - component: {fileID: 3906228504293155017}
   - component: {fileID: 5900949569968830227}
+  - component: {fileID: 3906228504293155017}
+  - component: {fileID: 4014724701552101312}
   m_Layer: 0
   m_Name: CollectiblePiece_1
   m_TagString: Collectible
@@ -984,18 +1055,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3906228504293155017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5201444443170694386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5900949569968830227
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1012,6 +1071,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3906228504293155017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201444443170694386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4014724701552101312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201444443170694386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}
 --- !u!1 &5201444443324607769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,8 +1108,9 @@ GameObject:
   - component: {fileID: 6388345117499638664}
   - component: {fileID: 719531121797728675}
   - component: {fileID: 4964813794330227817}
-  - component: {fileID: 3906228504138787106}
   - component: {fileID: 5900949569812365048}
+  - component: {fileID: 3906228504138787106}
+  - component: {fileID: 6789733447884150901}
   m_Layer: 0
   m_Name: CollectiblePiece_4
   m_TagString: Collectible
@@ -1111,18 +1196,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3906228504138787106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5201444443324607769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5900949569812365048
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1139,6 +1212,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3906228504138787106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201444443324607769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6789733447884150901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201444443324607769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}
 --- !u!1 &7476339554258920458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,8 +1249,9 @@ GameObject:
   - component: {fileID: 8595545497206131355}
   - component: {fileID: 2743321785395265712}
   - component: {fileID: 7712690100509343098}
-  - component: {fileID: 1863297549892739121}
   - component: {fileID: 9082097169685297131}
+  - component: {fileID: 1863297549892739121}
+  - component: {fileID: 6234892497140365658}
   m_Layer: 0
   m_Name: CollectiblePiece_10
   m_TagString: Collectible
@@ -1238,18 +1337,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1863297549892739121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476339554258920458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &9082097169685297131
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1266,6 +1353,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1863297549892739121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476339554258920458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6234892497140365658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476339554258920458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}
 --- !u!1 &7570674665301288579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,8 +1390,9 @@ GameObject:
   - component: {fileID: 8761955793398728722}
   - component: {fileID: 2937200077867336249}
   - component: {fileID: 7339109830912442355}
-  - component: {fileID: 1660412600421016248}
   - component: {fileID: 8132141965525857634}
+  - component: {fileID: 1660412600421016248}
+  - component: {fileID: 3032571695691429477}
   m_Layer: 0
   m_Name: CollectiblePiece_8
   m_TagString: Collectible
@@ -1364,18 +1477,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1660412600421016248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7570674665301288579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &8132141965525857634
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1392,6 +1493,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1660412600421016248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570674665301288579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3032571695691429477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570674665301288579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}
 --- !u!1 &7881219115603234114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,8 +1560,9 @@ GameObject:
   - component: {fileID: 7406256645229755853}
   - component: {fileID: 4004809039605594086}
   - component: {fileID: 8829648961915734572}
-  - component: {fileID: 601810013045118823}
   - component: {fileID: 8037759280550084797}
+  - component: {fileID: 601810013045118823}
+  - component: {fileID: 2928483058291262025}
   m_Layer: 0
   m_Name: CollectiblePiece_5
   m_TagString: Collectible
@@ -1520,18 +1647,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.59999996, y: 0.099999994, z: 0.099999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &601810013045118823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8520958989086462812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &8037759280550084797
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1548,3 +1663,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &601810013045118823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8520958989086462812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aca38331a8c6f946966f7b2cfb8c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2928483058291262025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8520958989086462812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80a28dea6bce4644820f3fcc68c3d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainColor: {r: 1, g: 0.38823533, b: 0, a: 1}

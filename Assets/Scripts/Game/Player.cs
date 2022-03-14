@@ -55,9 +55,7 @@ public class Player : Character
 
         if(other.gameObject.tag == "Wall" && collector.collectedLadderParts.Count == 0)
         {
-            gameplayController.FinishGameplay(false);
-            base.StopMoving();
-            animator.Play("Lose");
+            LoseGame();
         }
 
         if(other.gameObject.tag == "Wall" || other.gameObject.tag == "Ground")
@@ -65,6 +63,12 @@ public class Player : Character
             
             base.StopSpawningLadder();
         }
+    }
+    public void LoseGame()
+    {
+        base.StopMoving();
+        animator.Play("Lose");
+        gameplayController.FinishGameplay(false);
     }
 
     public override void SpawnLadder()

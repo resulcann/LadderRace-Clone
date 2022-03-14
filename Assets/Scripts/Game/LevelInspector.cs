@@ -7,6 +7,7 @@ public class LevelInspector : Editor
     public override void OnInspectorGUI()
     {
         Level level = (Level)target;
+        EditorUtility.SetDirty(level);
 
         level.levelIndex = EditorGUILayout.IntField("Level Index", level.levelIndex);
         level.levelPrefab = EditorGUILayout.ObjectField("Level Prefab To Spawn", level.levelPrefab,typeof(GameObject), true) as GameObject;

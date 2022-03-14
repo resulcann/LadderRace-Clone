@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
         Levels[currentLevelIndex].DestroyLevel();
         currentLevelIndex += 1;
         Levels[currentLevelIndex].CreateLevel();
-        
+        DestroyAllLadder();
     }
     public void RetryLevel()
     {
