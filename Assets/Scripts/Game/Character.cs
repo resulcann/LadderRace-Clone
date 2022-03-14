@@ -31,31 +31,35 @@ public abstract class Character : MonoBehaviour
         playerSpeed = 0f;
     }
 
-    protected void SpawnLadder()
+    public virtual void SpawnLadder()
     {
-        animator.SetBool("HighPoint",true);
-        float posY = 0.15f, posZ = 0.2f;
-        GameObject ladder = Instantiate(ladderPrefab) as GameObject;
-        Ladders.Add(ladder);
-        ladder.GetComponent<Rigidbody>().useGravity = false;
-        ladder.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
-        GameObject tempGo = collector.collectedLadderParts.Last();
-        collector.collectedLadderParts.Remove(collector.collectedLadderParts.Last());
-        Destroy(tempGo);
-
-        for (int i = 0; i < Ladders.Count; i++)
+        if(collector.collectedLadderParts.Count > 0 && isGrounded)
         {
-            Ladders[i].transform.localPosition = new Vector3(transform.localPosition.x, startPos.y + posY, startPos.z + posZ);
-            Ladders[i].name = "Ladder Part" + " " + i;
-            posY += 0.259808f;
-            posZ += 0.15f;
-            transform.position = Ladders[i].transform.position;
+            animator.SetBool("HighPoint",true);
+            float posY = 0.15f, posZ = 0.2f;
+            GameObject ladder = Instantiate(ladderPrefab) as GameObject;
+            Ladders.Add(ladder);
+            ladder.GetComponent<Rigidbody>().useGravity = false;
+            ladder.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+            GameObject tempGo = collector.collectedLadderParts.Last();
+            collector.collectedLadderParts.Remove(collector.collectedLadderParts.Last());
+            Destroy(tempGo);
+
+            for (int i = 0; i < Ladders.Count; i++)
+            {
+                Ladders[i].transform.localPosition = new Vector3(transform.localPosition.x, startPos.y + posY, startPos.z + posZ);
+                Ladders[i].name = "Ladder Part" + " " + i;
+                posY += 0.259808f;
+                posZ += 0.15f;
+                transform.position = Ladders[i].transform.position;
+            }
         }
+        
     }
 
     protected void StartSpawningLadder()
-    {
+    {   
         rigidBody.useGravity = false;
         startPos = transform.position;
         playerSpeed = 0f;

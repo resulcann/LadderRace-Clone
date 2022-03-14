@@ -22,7 +22,7 @@ public class GameplayController : MonoBehaviour
         
     }
 
-    private void FinishGameplay(bool success)
+    public void FinishGameplay(bool success)
     {
         IsActive = false;
 

@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 
 public class Player : Character
 {
-    void Start()
+    GameplayController gameplayController;
+    void Awake()
     {
         playerSpeedHolder = playerSpeed;
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         collector = GetComponent<Collector>();
+        gameplayController = FindObjectOfType<GameplayController>();
         
     }
 
@@ -25,7 +28,7 @@ public class Player : Character
             {
                 base.StartSpawningLadder();
             }
-            if(Input.GetMouseButtonUp(0) || (Input.GetMouseButton(0) && collector.collectedLadderParts.Count == 0))
+            if((Input.GetMouseButtonUp(0) && !isGrounded) || (Input.GetMouseButton(0) && collector.collectedLadderParts.Count == 0 && !isGrounded))
             {
                 base.StopSpawningLadder();
             }
@@ -36,8 +39,7 @@ public class Player : Character
     {
         if(other.gameObject.tag == "FinishLine")
         {
-            FindObjectOfType<GameplayController>().IsActive = false;
-            GameManager.Instance.ChangeCurrentGameState(GameState.FinishSuccess);
+            gameplayController.FinishGameplay(true);
             base.StopMoving();
             animator.Play("Victory");
 
@@ -53,15 +55,42 @@ public class Player : Character
 
         if(other.gameObject.tag == "Wall" && collector.collectedLadderParts.Count == 0)
         {
-            GameManager.Instance.ChangeCurrentGameState(GameState.FinishFail);
+            gameplayController.FinishGameplay(false);
             base.StopMoving();
             animator.Play("Lose");
         }
 
         if(other.gameObject.tag == "Wall" || other.gameObject.tag == "Ground")
         {
+            
             base.StopSpawningLadder();
         }
     }
+
+    public override void SpawnLadder()
+    {
+        animator.SetBool("HighPoint",true);
+        float posY = 0.15f, posZ = 0.2f;
+        GameObject ladder = Instantiate(ladderPrefab) as GameObject;
+        Ladders.Add(ladder);
+        ladder.GetComponent<Rigidbody>().useGravity = false;
+        ladder.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+        GameObject tempGo = collector.collectedLadderParts.Last();
+        collector.collectedLadderParts.Remove(collector.collectedLadderParts.Last());
+        Destroy(tempGo);
+
+        for (int i = 0; i < Ladders.Count; i++)
+        {
+            Ladders[i].transform.localPosition = new Vector3(transform.localPosition.x, startPos.y + posY, startPos.z + posZ);
+            Ladders[i].name = "Player's Ladder Part" + "[" + i +"]";
+            LevelManager.Instance.allSpawnedLadders.Add(Ladders[i]);
+            posY += 0.259808f;
+            posZ += 0.15f;
+            transform.position = Ladders[i].transform.position;
+        }
+    }
+
+    
 
 }

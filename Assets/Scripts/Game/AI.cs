@@ -1,16 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using DG.Tweening;
 
 public class AI : Character
 {
     int successPercentage = 50;
+    GameplayController gameplayController;
 
-    void Start()
+    void Awake()
     {
         playerSpeedHolder = playerSpeed;
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         collector = GetComponent<Collector>();
+        gameplayController = FindObjectOfType<GameplayController>();
         Mathf.Clamp(successPercentage, 30, 80);
     }
 
@@ -20,23 +25,26 @@ public class AI : Character
         {
             base.Move();
             base.CheckIsGrounded();
+            if(collector.collectedLadderParts.Count == 0 && !isGrounded)
+            {
+                base.StopSpawningLadder();
+            }
         }
 
     }
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.tag == "StartSpawning" && collector.collectedLadderParts.Count > 0 && isGrounded)
+        if(other.gameObject.tag == "StartSpawning" && isGrounded && collector.collectedLadderParts.Count > 0)
         {
             int randomValue = (int)Random.Range(0,100);
-            Debug.Log(randomValue);
             if( successPercentage > randomValue)
             {
                 base.StartSpawningLadder();
             }
             
         }
-        if(other.gameObject.tag == "StopSpawning" || collector.collectedLadderParts.Count == 0)
+        if(other.gameObject.tag == "StopSpawning")
         {
             base.StopSpawningLadder();
         }
@@ -44,11 +52,9 @@ public class AI : Character
 
         if(other.gameObject.tag == "FinishLine")
         {
-            FindObjectOfType<GameplayController>().IsActive = false;
-            GameManager.Instance.ChangeCurrentGameState(GameState.FinishSuccess);
             base.StopMoving();
             animator.Play("Victory");
-
+            gameplayController.FinishGameplay(false);
         }
         
     }
@@ -62,6 +68,31 @@ public class AI : Character
         if(other.gameObject.tag == "Wall" || other.gameObject.tag == "Ground")
         {
             base.StopSpawningLadder();
+        }
+    }
+
+    public override void SpawnLadder()
+    {
+        
+        animator.SetBool("HighPoint",true);
+        float posY = 0.15f, posZ = 0.2f;
+        GameObject ladder = Instantiate(ladderPrefab) as GameObject;
+        Ladders.Add(ladder);
+        ladder.GetComponent<Rigidbody>().useGravity = false;
+        ladder.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+        GameObject tempGo = collector.collectedLadderParts.Last();
+        collector.collectedLadderParts.Remove(collector.collectedLadderParts.Last());
+        Destroy(tempGo);
+
+        for (int i = 0; i < Ladders.Count; i++)
+        {
+            Ladders[i].transform.localPosition = new Vector3(transform.localPosition.x, startPos.y + posY, startPos.z + posZ);
+            Ladders[i].name = "AI's Ladder Part" + "[" + i +"]";
+            LevelManager.Instance.allSpawnedLadders.Add(Ladders[i]);
+            posY += 0.259808f;
+            posZ += 0.15f;
+            transform.position = Ladders[i].transform.position;
         }
     }
 
