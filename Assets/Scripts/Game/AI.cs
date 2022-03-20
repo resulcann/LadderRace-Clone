@@ -6,7 +6,6 @@ using DG.Tweening;
 
 public class AI : Character
 {
-    int successPercentage = 50;
     GameplayController gameplayController;
 
     void Awake()
@@ -16,7 +15,6 @@ public class AI : Character
         animator = GetComponent<Animator>();
         collector = GetComponent<Collector>();
         gameplayController = FindObjectOfType<GameplayController>();
-        Mathf.Clamp(successPercentage, 30, 80);
     }
 
     void Update()
@@ -25,9 +23,19 @@ public class AI : Character
         {
             base.Move();
             base.CheckIsGrounded();
+
             if(collector.collectedLadderParts.Count == 0 && !isGrounded)
             {
                 base.StopSpawningLadder();
+            }
+
+            if(GameManager.Instance.aiSuccessPercentage > 80)
+            {
+                GameManager.Instance.aiSuccessPercentage = 80;
+            }
+            if(GameManager.Instance.aiSuccessPercentage < 30)
+            {
+                GameManager.Instance.aiSuccessPercentage = 30;
             }
         }
 
@@ -38,7 +46,7 @@ public class AI : Character
         if(other.gameObject.tag == "StartSpawning" && isGrounded && collector.collectedLadderParts.Count > 0)
         {
             int randomValue = (int)Random.Range(0,100);
-            if( successPercentage > randomValue)
+            if( GameManager.Instance.aiSuccessPercentage > randomValue)
             {
                 base.StartSpawningLadder();
             }
@@ -53,8 +61,8 @@ public class AI : Character
         if(other.gameObject.tag == "FinishLine")
         {
             base.StopMoving();
-            animator.Play("Victory");
-            gameplayController.FinishGameplay(false);
+            animator.SetBool("Victory", true);
+            FindObjectOfType<Player>().LoseGame();
         }
         
     }
@@ -73,8 +81,8 @@ public class AI : Character
 
     public override void SpawnLadder()
     {
-        
         animator.SetBool("HighPoint",true);
+
         float posY = 0.15f, posZ = 0.2f;
         GameObject ladder = Instantiate(ladderPrefab) as GameObject;
         Ladders.Add(ladder);

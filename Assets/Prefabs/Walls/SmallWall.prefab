@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 2876902758467518178}
   - component: {fileID: 2876902758467518177}
   - component: {fileID: 2876902758467518176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallWall
   m_TagString: Ground
   m_Icon: {fileID: 0}

@@ -10,6 +10,7 @@ public class SettingsPopup : MonoBehaviour
     public Button termsOfUseButton;
     public Button privacyPolicyButton;
     public Toggle vibrationToggle;
+    public Toggle musicToggle;
 
     private CanvasGroup _canvasGroup;
     public CanvasGroup CanvasGroup
@@ -31,11 +32,14 @@ public class SettingsPopup : MonoBehaviour
         termsOfUseButton.onClick.AddListener(TermsOfUseButtonClicked);
         privacyPolicyButton.onClick.AddListener(PrivacyPolicyButtonClicked);
         vibrationToggle.onValueChanged.AddListener(VibrationToggleValueChanged);
+        musicToggle.onValueChanged.AddListener(MusicToggleValueChanged);
+        
     }
 
     public void Show()
     {
         vibrationToggle.isOn = GameManager.Instance.IsVibrationEnabled;
+        musicToggle.isOn = GameManager.Instance.IsMusicEnabled;
 
         CanvasGroup.alpha = 1f;
         CanvasGroup.interactable = true;
@@ -50,6 +54,7 @@ public class SettingsPopup : MonoBehaviour
         CanvasGroup.interactable = false;
         CanvasGroup.blocksRaycasts = false;
 
+        Time.timeScale = 1f;
         IsShown = false;
     }
 
@@ -74,5 +79,18 @@ public class SettingsPopup : MonoBehaviour
             return;
 
         GameManager.Instance.IsVibrationEnabled = value;
+    }
+
+    private void MusicToggleValueChanged(bool value)
+    {
+        if(!IsShown)
+            return;
+        GameManager.Instance.IsMusicEnabled = value;
+        if(value)
+        {
+            Camera.main.GetComponent<AudioSource>().volume = 0.1f;
+        }else{
+            Camera.main.GetComponent<AudioSource>().volume = 0f;
+        }
     }
 }

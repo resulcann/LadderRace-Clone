@@ -19,7 +19,7 @@ public class Collector : MonoBehaviour
         {
             other.gameObject.transform.parent = backpack.transform;
             other.gameObject.transform.localRotation = new Quaternion(0f,0f,0f,0f);
-            other.gameObject.GetComponent<CollectibleLadder>().SetCollected();
+            other.gameObject.GetComponent<Collectible>().SetCollected();
             collectedLadderParts.Add(other.gameObject);
             
         }

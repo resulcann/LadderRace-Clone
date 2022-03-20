@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CollectibleLadder : MonoBehaviour
+public class Collectible : MonoBehaviour
 {
     bool isCollected;
     void Start()

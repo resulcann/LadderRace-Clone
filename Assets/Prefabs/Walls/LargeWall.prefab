@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4152001402978625740}
   - component: {fileID: 4152001402978625779}
   - component: {fileID: 4152001402978625778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LargeWall
   m_TagString: Ground
   m_Icon: {fileID: 0}

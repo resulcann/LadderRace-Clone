@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 8326107173454779756}
   - component: {fileID: 8326107173454779759}
   - component: {fileID: 8326107173454779758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MediumWall
   m_TagString: Ground
   m_Icon: {fileID: 0}

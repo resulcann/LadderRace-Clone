@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class Player : Character
 {
     GameplayController gameplayController;
+    public TextMeshProUGUI coinText;
     void Awake()
     {
         playerSpeedHolder = playerSpeed;
@@ -14,6 +16,7 @@ public class Player : Character
         animator = GetComponent<Animator>();
         collector = GetComponent<Collector>();
         gameplayController = FindObjectOfType<GameplayController>();
+        coinText = FindObjectOfType<GameplayPanel>().transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
         
     }
 
@@ -23,12 +26,14 @@ public class Player : Character
         {
             base.Move();
             CheckIsGrounded();
+            coinText.text = GameManager.Instance.numberOfCoins.ToString();
+            float mouseCurrentPosY = Input.mousePosition.y;
 
-            if(Input.GetMouseButtonDown(0) && collector.collectedLadderParts.Count > 0 && isGrounded)
+            if( (Input.GetMouseButtonDown(0) ) && ( collector.collectedLadderParts.Count > 0 && isGrounded))
             {
                 base.StartSpawningLadder();
             }
-            if((Input.GetMouseButtonUp(0) && !isGrounded) || (Input.GetMouseButton(0) && collector.collectedLadderParts.Count == 0 && !isGrounded))
+            if( (Input.GetMouseButtonUp(0) && !isGrounded) || ( collector.collectedLadderParts.Count == 0 && !isGrounded) )
             {
                 base.StopSpawningLadder();
             }
@@ -39,10 +44,7 @@ public class Player : Character
     {
         if(other.gameObject.tag == "FinishLine")
         {
-            gameplayController.FinishGameplay(true);
-            base.StopMoving();
-            animator.Play("Victory");
-
+            WinGame();
         }
         
     }
@@ -64,17 +66,27 @@ public class Player : Character
             base.StopSpawningLadder();
         }
     }
+    public void WinGame()
+    {
+        base.StopMoving();
+        animator.SetBool("Victory", true);
+        GameManager.Instance.aiSuccessPercentage += 10;
+        gameplayController.FinishGameplay(true);
+    }
     public void LoseGame()
     {
         base.StopMoving();
-        animator.Play("Lose");
+        animator.SetBool("Lose", true);
+        GameManager.Instance.aiSuccessPercentage -= 10;
         gameplayController.FinishGameplay(false);
     }
 
     public override void SpawnLadder()
     {
         animator.SetBool("HighPoint",true);
+
         float posY = 0.15f, posZ = 0.2f;
+        
         GameObject ladder = Instantiate(ladderPrefab) as GameObject;
         Ladders.Add(ladder);
         ladder.GetComponent<Rigidbody>().useGravity = false;
