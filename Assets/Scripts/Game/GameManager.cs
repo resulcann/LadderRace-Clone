@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         Camera.main.GetComponent<AudioSource>().volume = enabled ? 0.1f : 0f;
     }
 
-    private void ChangeCurrentGameState(GameState newGameState)
+    public void ChangeCurrentGameState(GameState newGameState)
     {
         var oldGameState = CurrentGameState;
         CurrentGameState = newGameState;

@@ -54,7 +54,6 @@ public class SettingsPopup : MonoBehaviour
         CanvasGroup.interactable = false;
         CanvasGroup.blocksRaycasts = false;
 
-        Time.timeScale = 1f;
         IsShown = false;
     }
 
@@ -86,11 +85,6 @@ public class SettingsPopup : MonoBehaviour
         if(!IsShown)
             return;
         GameManager.Instance.IsMusicEnabled = value;
-        if(value)
-        {
-            Camera.main.GetComponent<AudioSource>().volume = 0.1f;
-        }else{
-            Camera.main.GetComponent<AudioSource>().volume = 0f;
-        }
+        Camera.main.GetComponent<AudioSource>().volume = value ? 0.1f : 0f;
     }
 }

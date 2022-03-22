@@ -37,13 +37,13 @@ public class GameplayController : MonoBehaviour
         if (!IsActive)
             return;
 
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            FinishGameplay(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.J))
-        {
-            FinishGameplay(false);
-        }
+        // if (Input.GetKeyDown(KeyCode.U))
+        // {
+        //     FinishGameplay(true);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.J))
+        // {
+        //     FinishGameplay(false);
+        // }
     }
 }

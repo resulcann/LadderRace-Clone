@@ -9,6 +9,9 @@ public class Player : Character
 {
     GameplayController gameplayController;
     public TextMeshProUGUI coinText;
+    public bool canspawn;
+
+    
     void Awake()
     {
         playerSpeedHolder = playerSpeed;
@@ -22,31 +25,30 @@ public class Player : Character
 
     void Update()
     {
-        if(GameManager.Instance.CurrentGameState == GameState.Gameplay)
-        {
-            base.Move();
-            CheckIsGrounded();
-            coinText.text = GameManager.Instance.numberOfCoins.ToString();
-            float mouseCurrentPosY = Input.mousePosition.y;
+        if(!gameplayController.IsActive)
+            return;
 
-            if( (Input.GetMouseButtonDown(0) ) && ( collector.collectedLadderParts.Count > 0 && isGrounded))
-            {
-                base.StartSpawningLadder();
-            }
-            if( (Input.GetMouseButtonUp(0) && !isGrounded) || ( collector.collectedLadderParts.Count == 0 && !isGrounded) )
-            {
-                base.StopSpawningLadder();
-            }
+        base.Move();
+        CheckIsGrounded();
+        coinText.text = GameManager.Instance.numberOfCoins.ToString();
+
+        if( (Input.GetMouseButtonDown(0) ) && ( collector.collectedLadderParts.Count > 0 && isGrounded) )
+        {
+            base.StartSpawningLadder();
+        }
+        if( (Input.GetMouseButtonUp(0) && !isGrounded) || (  collector.collectedLadderParts.Count == 0 && !isGrounded) )
+        {
+            base.StopSpawningLadder();
         }
 
     }
+
     private void OnTriggerEnter(Collider other) 
     {
         if(other.gameObject.tag == "FinishLine")
         {
             WinGame();
         }
-        
     }
     private void OnCollisionEnter(Collision other) 
     {

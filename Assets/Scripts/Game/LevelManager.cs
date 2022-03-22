@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
     public List<Level> Levels;
-    public int currentLevelIndex = 1;
+    public int currentLevelIndex = 0;
     [HideInInspector] public List<GameObject> allSpawnedLadders;
 
     void Awake() 
@@ -20,21 +20,27 @@ public class LevelManager : MonoBehaviour
     
     public void SpawnCurrentLevel()
     {
-        Levels[currentLevelIndex-1].CreateLevel();
+        Levels[currentLevelIndex].CreateLevel();
     }
 
     public void NextLevel()
     {
+        Levels[currentLevelIndex].DestroyLevel();
+        if(currentLevelIndex == 2)
+        {
+            currentLevelIndex = Random.Range(0,2);
+        }
+        else{
+            currentLevelIndex += 1;
+        }
         
-        Levels[currentLevelIndex-1].DestroyLevel();
-        currentLevelIndex += 1;
-        Levels[currentLevelIndex-1].CreateLevel();
+        Levels[currentLevelIndex].CreateLevel();
         DestroyAllLadder();
     }
     public void RetryLevel()
     {
-        Levels[currentLevelIndex-1].DestroyLevel();
-        Levels[currentLevelIndex-1].CreateLevel();
+        Levels[currentLevelIndex].DestroyLevel();
+        Levels[currentLevelIndex].CreateLevel();
         DestroyAllLadder();
     }
 

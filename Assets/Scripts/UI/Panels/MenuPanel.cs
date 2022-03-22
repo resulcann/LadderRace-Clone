@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
 public class MenuPanel : UIPanel
 {
     [Header("References - UI")]
     public Button startButton;
     public Button settingsButton;
     public SettingsPopup settingsPopup;
-
     private void Awake()
     {
         settingsPopup.Hide();
@@ -21,7 +19,7 @@ public class MenuPanel : UIPanel
         GameManager.StartGameplay();
     }
 
-    private void SettingsButtonClicked()
+    public void SettingsButtonClicked()
     {
         settingsPopup.Show();
     }

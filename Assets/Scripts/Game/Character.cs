@@ -53,6 +53,7 @@ public abstract class Character : MonoBehaviour
             posZ += 0.15f;
             transform.position = Ladders[i].transform.position;
         }
+        
     }
 
     protected void StartSpawningLadder()
